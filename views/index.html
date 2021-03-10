@@ -1,0 +1,73 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Metis</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" href="./assets/images/favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" type="text/css" href="./assets/css/responsive.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="container">
+      <div class="logo-row"><img title="Metis" src="./assets/images/logo.png" alt="Metis"></div>
+      <div class="main-row">
+        <div class="main-column">
+          <h3><span>1</span> Check Arrangement</h3>
+          <div class="form-bg">
+            <form id="requestform">
+              <div class="form-group">
+                <label>Vault Address</label>
+                <input type="text" name="address" type="text" maxlength="100" placeholder="0x..." required>
+              </div>
+              <div class="form-group">
+                <label>Arrangement index</label>
+                <input name="index" type="number" maxlength="100" required default="0">
+              </div>
+              <div class="form-group">
+                <input value="Check my arrangement" type="submit" id="submit-request">
+              </div>
+              <text id="requestresult">
+            </form>
+          </div>
+          <h3><span>2</span> Claim your token</h3>
+          <div class="form-bg section-gap">
+            <form id="confirmform">
+              <div class="form-group">
+                <label>Vault Address</label>
+                <input name="address" type="text" maxlength="100" required placeholder="0x...">
+              </div>
+              <div class="form-group">
+                <input class="claim-bg" value="CLAIM" type="submit" id="submit-confirm">
+              </div>
+              <text id="confirmresult">
+            </form>
+          </div>
+        </div>
+        <div class="main-column">
+          <h2>IMPORTANT</h2>
+          <ul>
+            <li>Index starts from 0</li>
+            <li>Do NOT proceed if MetaMask reports error (with huge gas cost).
+              It means you did something wrong!</li>
+          </ul>
+          <img class="code-img" src="./assets/images/code-img.png" alt="img">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--wrapper end-->
+  <!-- JS Start here -->
+  <script src="./assets/js/jquery-3.3.1.min.js"></script>
+  <script src="./assets/js/bootstrap.min.js"></script>
+  <script src="./web3.min.js"></script>
+  <script src="./script.js" defer></script>
+
+</body>
+
+</html>
