@@ -301,3 +301,46 @@ button:focus {
     margin-left: -80px;
     
   }
+  .result-text{
+    text-align: center;
+    background: #ffd5d5;
+    padding:20px;
+    }
+    .white-bg{
+    background: #fff;
+    padding:20px;
+    }
+    .result-text p{
+    font-size: 15px;
+    color: #282828;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    }
+    .result-text p span{
+    padding-left: 10px;
+    font-weight: bold;
+    color: #000;
+    }
+    .success-msg{
+    background: #bffab1;
+    padding:10px 30px;
+    font-size: 15px;
+    color: #358902 !important;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-weight: 500;
+    }
+    .error-msg{
+      background: #fab9b1;
+      padding:10px 30px;
+      font-size: 15px;
+      color: #a50c07 !important;
+      text-align: center;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      font-weight: 500;
+    }
+    #confirmresult p {
+      overflow-wrap: break-word;
+    }
