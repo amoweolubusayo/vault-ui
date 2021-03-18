@@ -387,42 +387,50 @@ if (window.ethereum) {
                             let amount = p.amount;
                             let status = '';
                             if(p.aStatus == 0)
-                                status = 'LOCKED';
+                                status = 'PENDING';
                             if(p.aStatus == 1)
                                 status = 'ARRANGED';
                             if(p.aStatus == 2)
                                 status = 'PAID';
                             
+                            var final_date = '';
                            // convert unix timestamp to milliseconds
-                            var ts_ms = p.timestamp * 1000;
+                           if(p.aStatus != 0 && p.timestamp>0 )
+                           {
+                                var ts_ms = p.timestamp * 1000;
 
-                            // initialize new Date object
-                            var date_ob = new Date(ts_ms);
+                                // initialize new Date object
+                                var date_ob = new Date(ts_ms);
 
-                            // year as 4 digits (YYYY)
-                            var year = date_ob.getFullYear();
-                            // month as 2 digits (MM)
-                            var month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+                                // year as 4 digits (YYYY)
+                                var year = date_ob.getFullYear();
+                                // month as 2 digits (MM)
+                                var month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
 
-                            // date as 2 digits (DD)
-                            var date = ("0" + date_ob.getDate()).slice(-2);
+                                // date as 2 digits (DD)
+                                var date = ("0" + date_ob.getDate()).slice(-2);
 
-                            // hours as 2 digits (hh)
-                            var hours = ("0" + date_ob.getHours()).slice(-2);
+                                // hours as 2 digits (hh)
+                                var hours = ("0" + date_ob.getHours()).slice(-2);
 
-                            // minutes as 2 digits (mm)
-                            var minutes = ("0" + date_ob.getMinutes()).slice(-2);
+                                // minutes as 2 digits (mm)
+                                var minutes = ("0" + date_ob.getMinutes()).slice(-2);
 
-                            // seconds as 2 digits (ss)
-                            var seconds = ("0" + date_ob.getSeconds()).slice(-2);
+                                // seconds as 2 digits (ss)
+                                var seconds = ("0" + date_ob.getSeconds()).slice(-2);
 
-                            var final_date = year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds
-                            let result = 'Amount:'+amount+' Unlocked by:'+ final_date+' Current Status:'+status;
+                                final_date = year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds
+                           }
+                           
+                           
 
                             var resultstr = '<p class="success-msg">Transaction successfully completed</p>';
                             resultstr += '<div class="white-bg">';
                             resultstr += '<p>Amount:<span>'+amount+'</span></p>';
-                            resultstr += '<p>Unlocked by:<span>'+final_date+'</span></p>';
+                            if(final_date!='')
+                            {
+                                resultstr += '<p>Unlocked by:<span>'+final_date+'</span></p>';
+                            }                            
                             resultstr += '<p>Current Status:<span>'+status+'</span></p>';
                             resultstr += '</div>';
                             $("#requestresult").show();
